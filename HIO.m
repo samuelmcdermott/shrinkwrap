@@ -17,7 +17,7 @@ for iter = 1:n_iter
     g_dash = ifftshift(ifft2(ifftshift((F_satis))));
     violate_cond = ~support | (real(g_dash)<0);
     g_next = g_dash;
-    g_next(violate_cond) =  g_dash(violate_cond) - beta.*g_dash(violate_cond);
+    g_next(violate_cond) =  g(violate_cond) - beta.*g_dash(violate_cond);
     
     g = g_next;
 
